@@ -1,0 +1,22 @@
+<h1>お気に入り一覧</h1>
+<p><%= notice %></p>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Content</th>
+    <th>Image</th>
+  </tr>
+
+<% @favorites.each do |favorite| %>
+  <tr>
+    <td><%= favorite.picture.user.name%></td>
+    <td><%= favorite.picture.content %></td>
+    <td><%= image_tag favorite.picture.image.url, class: "img" if favorite.picture.image.url %></td>
+  </tr>
+<% end %>
+</table>
+
+<br>
+
+<%= link_to '新しく写真を投稿する', new_picture_path %>
