@@ -1,0 +1,27 @@
+<h1>写真一覧</h1>
+
+<p><%= notice %></p>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Content</th>
+    <th>Image</th>
+    <th colspan="3"></th>
+  </tr>
+
+<% @pictures.each do |picture| %>
+  <tr>
+    <td><%= picture.user.name%></td>
+    <td><%= picture.content %></td>
+    <td><%= image_tag picture.image.url, class: "img" if picture.image_url %></td>
+    <td><%= link_to '詳細を確認する', picture_path(picture.id) %></td>
+		<td><%= link_to "編集する", edit_picture_path(picture.id), date: { confirm: "本当に編集していいですか？"} %></td>
+		<td><%= link_to '削除する', picture_path(picture.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+  </tr>
+<% end %>
+</table>
+
+<br>
+
+<%= link_to '新しく写真を投稿する', new_picture_path %>

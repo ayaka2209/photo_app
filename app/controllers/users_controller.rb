@@ -40,4 +40,8 @@ class UsersController < ApplicationController
 	def user_params
 		params.require(:user).permit(:image, :image_cache)
 	end
+
+	def set_feed
+		@feed = Feed.find(params[:id])
+	end
 end
