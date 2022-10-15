@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1>写真詳細画面</h1>
-<p>タイトル: <%= @picture.title %></p>
 <p>内容: <%= @picture.content %></p>
 <%= image_tag @picture.image.url %>
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
