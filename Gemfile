@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.1'
 
+gem 'dotenv-rails'
 gem 'rails', '~> 6.1.6'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
@@ -16,11 +17,13 @@ gem 'bcrypt'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'mimemagic', '0.3.7'
+gem 'sendgrid-ruby'
 
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rexml'
+  gem 'faker' 
 end
 
 group :development do
@@ -28,7 +31,7 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
-   gem 'letter_opener_web'
+  gem 'letter_opener_web'
 end
 
 group :test do
