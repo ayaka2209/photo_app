@@ -17,8 +17,10 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'mimemagic', '0.3.7'
 
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rexml'
 end
 
 group :development do
@@ -26,6 +28,7 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
+   gem 'letter_opener_web'
 end
 
 group :test do
