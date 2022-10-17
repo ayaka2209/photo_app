@@ -6,9 +6,9 @@ class ContactsController < ApplicationController
 	end
 	
 	def create
-		@contact = Contact.new(contact_params)
-		if @contact.save
-			ContactMailer.contact_mail(@contact).deliver
+		@contact = Contact.new(picture_params)
+		if @picture.save
+			ContactMailer.contact_mail(@picture).deliver
 			redirect_to contacts_path, notice: 'Contact was successfully created.'
 		else
 			render :new
