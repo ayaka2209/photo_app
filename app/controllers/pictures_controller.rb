@@ -43,7 +43,13 @@ class PicturesController < ApplicationController
 	end
 
 	def edit
+		#もし本人以外だったら投稿一覧画面に飛ばす　ログインした人のIDと編集しようとしている投稿の投稿者のIDが一致しなかったら
+		#ログインした人のID current_user.id
+		#編集しようとしている投稿の投稿者のID   @picture.user.id
 		@picture = Picture.find(params[:id])
+    if current_user.id != @picture.user.id
+			redirect_to pictures_path, notice: "あなたはだめよ！"
+    end
 	end
 
 	def update
