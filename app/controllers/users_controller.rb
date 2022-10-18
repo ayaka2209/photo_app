@@ -27,12 +27,15 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-
-		# favorites = 
 	end
 
 	def edit
+		#ログインした人のID current_user.id
+		#編集しようとしている
 		@user = User.find(params[:id])
+		if current_user.id != @user.id
+			redirect_to user_path(@user.id), notice: "編集できません"
+		end
 	end
 
 	def update
