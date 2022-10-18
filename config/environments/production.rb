@@ -49,6 +49,7 @@ Rails.application.configure do
 end
 
 config.action_mailer.default_url_options = { host: 'secure-eyrie-59213.herokuapp.com' }
+config.action_mailer.delivery_method = :letter_opener_web
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     user_name: ENV['SENDGRID_USERNAME'],
