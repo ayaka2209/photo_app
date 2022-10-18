@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
 	def edit
 		#ログインした人のID current_user.id
-		#編集しようとしている
+		#@userはデータベースの中のテーブル名
 		@user = User.find(params[:id])
 		if current_user.id != @user.id
 			redirect_to user_path(@user.id), notice: "編集できません"

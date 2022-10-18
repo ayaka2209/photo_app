@@ -15,8 +15,10 @@
     <td><%= picture.content %></td>
     <td><%= image_tag picture.image.url, class: "img" if picture.image_url %></td>
     <td><%= link_to '詳細を確認する', picture_path(picture.id) %></td>
-		<td><%= link_to "編集する", edit_picture_path(picture.id), date: { confirm: "本当に編集していいですか？"} %></td>
-		<td><%= link_to '削除する', picture_path(picture.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+		<% if logged_in? && current_user.id == picture.user_id %>
+      <td><%= link_to "編集する", edit_picture_path(picture.id), date: { confirm: "本当に編集していいですか？"} %></td>
+		  <td><%= link_to '削除する', picture_path(picture.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+    <% end %>
   </tr>
 <% end %>
 </table>
